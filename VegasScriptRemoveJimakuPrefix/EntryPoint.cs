@@ -1,5 +1,5 @@
 ﻿using ScriptPortal.Vegas;
-using System.Drawing;
+using VegasScriptHelper;
 using System.Windows.Forms;
 
 namespace VegasScriptRemoveJimakuPrefix
