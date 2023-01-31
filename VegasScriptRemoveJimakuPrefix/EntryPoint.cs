@@ -8,7 +8,6 @@ namespace VegasScriptRemoveJimakuPrefix
     {
         public void FromVegas(Vegas vegas)
         {
-            VegasScriptSettings.Load();
             VegasHelper helper = VegasHelper.Instance(vegas);
 
             try
