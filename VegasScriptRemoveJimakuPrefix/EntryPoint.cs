@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace VegasScriptRemoveJimakuPrefix
 {
-    public class EntryPoint
+    public class EntryPoint: IEntryPoint
     {
         public void FromVegas(Vegas vegas)
         {
