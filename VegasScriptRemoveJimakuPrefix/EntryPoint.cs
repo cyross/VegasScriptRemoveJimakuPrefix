@@ -8,6 +8,8 @@ namespace VegasScriptRemoveJimakuPrefix
 {
     public class EntryPoint: IEntryPoint
     {
+        private SettingForm settingForm = null;
+
         public void FromVegas(Vegas vegas)
         {
             VegasHelper helper = VegasHelper.Instance(vegas);
@@ -25,15 +27,14 @@ namespace VegasScriptRemoveJimakuPrefix
 
             string initialKey = selected != null ? helper.GetTrackKey(selected) : videoTrackKeys[0];
 
-            SettingForm form = new SettingForm()
-            {
-                RemoveJimakuDataSource = videoTrackKeys,
-                RemoveJimakuTrackName = initialKey
-            };
+            if(settingForm == null) { settingForm = new SettingForm(); }
+
+            settingForm.RemoveJimakuDataSource = videoTrackKeys;
+            settingForm.RemoveJimakuTrackName = initialKey;
 
             try
             {
-                helper.DeleteJimakuPrefix(keyValuePairs[form.RemoveJimakuTrackName]);
+                helper.DeleteJimakuPrefix(keyValuePairs[settingForm.RemoveJimakuTrackName]);
             }
             catch (VegasHelperTrackUnselectedException)
             {
