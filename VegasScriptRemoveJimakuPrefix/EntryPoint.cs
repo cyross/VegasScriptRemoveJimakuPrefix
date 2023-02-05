@@ -32,6 +32,8 @@ namespace VegasScriptRemoveJimakuPrefix
             settingForm.RemoveJimakuDataSource = videoTrackKeys;
             settingForm.RemoveJimakuTrackName = initialKey;
 
+            if(settingForm.ShowDialog() == DialogResult.Cancel) { return; }
+
             try
             {
                 helper.DeleteJimakuPrefix(keyValuePairs[settingForm.RemoveJimakuTrackName]);
